@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>古市歯科医院 | 羽生市 — 歯を抜かない・削らない40年の哲学</title>
+  <meta name="description" content="埼玉県羽生市の古市歯科医院。「抜かない・削らない」を40年貫く保存歯科。歯周病専門医在籍。東武伊勢崎線 羽生駅 徒歩7分。TEL 048-561-0024">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── Custom Properties ─── */
+    :root {
+      --base:   #FAFAF7;
+      --accent: #2D5A4E;
+      --accent-dark: #1e3d34;
+      --sub:    #C8B89A;
+      --sub-light: #ddd0bb;
+      --text:   #1A1A1A;
+      --white:  #ffffff;
+      --gray:   #888888;
+      --border: #e4e4da;
+    }
+
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background-color: var(--base);
+      line-height: 1.85;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── Scroll Animation ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(.22,.61,.36,1), transform 0.75s cubic-bezier(.22,.61,.36,1);
+      transition-delay: var(--delay, 0ms);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Navigation ─── */
+    #nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 3rem;
+      transition: background 0.45s ease, backdrop-filter 0.45s ease, box-shadow 0.45s ease;
+    }
+    #nav.scrolled {
+      background: rgba(250,250,247,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--border), 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .nav-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+      letter-spacing: 0.06em;
+      transition: color 0.45s;
+    }
+    #nav.scrolled .nav-logo { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.82);
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--sub);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    #nav.scrolled .nav-links a { color: var(--text); }
+    #nav.scrolled .nav-links a:hover { color: var(--accent); }
+    #nav.scrolled .nav-links a::after { background: var(--accent); }
+
+    .nav-tel {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.06em;
+      transition: color 0.45s;
+    }
+    #nav.scrolled .nav-tel { color: var(--accent); }
+
+    /* ─── Section Utilities ─── */
+    section { padding: 6.5rem 2rem; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .container-sm { max-width: 720px; margin: 0 auto; }
+
+    .section-eyebrow {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      color: var(--sub);
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 600;
+      font-size: clamp(1.45rem, 2.8vw, 2.1rem);
+      line-height: 1.55;
+      color: var(--text);
+      margin-bottom: 1.4rem;
+    }
+    .section-title.light { color: var(--white); }
+    .section-body {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 2.1;
+    }
+    .rule {
+      width: 40px; height: 1px;
+      background: var(--sub);
+      margin-bottom: 2rem;
+    }
+
+    /* ─────────────────────────
+       1. HERO
+    ───────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--accent-dark);
+    }
+    .hero-gradient {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 60%, #2D5A4E 0%, #1a3b33 55%, #0f2520 100%);
+    }
+    .hero-svg-texture {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      opacity: 0.18;
+    }
+    .hero-vignette {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.45) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem;
+      max-width: 820px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      color: var(--sub-light);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.7s cubic-bezier(.22,.61,.36,1) 0.2s forwards;
+    }
+    .hero-badge::before,
+    .hero-badge::after {
+      content: '';
+      display: block;
+      width: 28px; height: 1px;
+      background: var(--sub);
+      opacity: 0.7;
+    }
+    .hero-h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 700;
+      font-size: clamp(2.1rem, 5.5vw, 3.8rem);
+      color: var(--white);
+      line-height: 1.45;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.6rem;
+      opacity: 0;
+      animation: fadeUp 0.8s cubic-bezier(.22,.61,.36,1) 0.42s forwards;
+    }
+    .hero-sub {
+      font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      letter-spacing: 0.06em;
+      margin-bottom: 3.2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s cubic-bezier(.22,.61,.36,1) 0.62s forwards;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1.1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s cubic-bezier(.22,.61,.36,1) 0.82s forwards;
+    }
+    .btn-solid {
+      display: inline-block;
+      padding: 1.05rem 2.8rem;
+      background: var(--sub);
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .btn-solid:hover { background: #b8a48a; transform: translateY(-3px); }
+    .btn-ghost {
+      display: inline-block;
+      padding: 1.05rem 2.8rem;
+      background: transparent;
+      color: rgba(255,255,255,0.88);
+      border: 1px solid rgba(255,255,255,0.38);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.7);
+      transform: translateY(-3px);
+    }
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.4rem; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      animation: scrollBounce 2.4s ease-in-out infinite;
+    }
+    .hero-scroll-hint svg { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(7px); }
+    }
+
+    /* ─────────────────────────
+       2. PHILOSOPHY
+    ───────────────────────── */
+    #philosophy { background: var(--white); }
+
+    .philosophy-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 4.5rem;
+    }
+    .philosophy-head .section-title { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+
+    .philosophy-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+    .p-card {
+      padding: 3rem 2.2rem 2.8rem;
+      background: var(--base);
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: box-shadow 0.35s, transform 0.35s;
+    }
+    .p-card:hover {
+      box-shadow: 0 8px 32px rgba(45,90,78,0.1);
+      transform: translateY(-4px);
+    }
+    .p-card-icon {
+      width: 52px; height: 52px;
+      margin: 0 auto 1.8rem;
+      color: var(--accent);
+    }
+    .p-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+    .p-card-desc {
+      font-size: 0.82rem;
+      color: #666;
+      line-height: 1.95;
+    }
+
+    /* ─────────────────────────
+       3. DIRECTOR
+    ───────────────────────── */
+    #doctor { background: var(--base); }
+
+    .doctor-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 6rem;
+      align-items: start;
+    }
+    .doctor-name-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      color: var(--sub);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .doctor-name-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .doctor-title {
+      font-size: 0.78rem;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+      margin-bottom: 2.2rem;
+    }
+    .doctor-quote {
+      border-left: 3px solid var(--sub);
+      padding: 0.3rem 0 0.3rem 1.5rem;
+      margin: 0 0 2.4rem;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.97rem;
+      color: #444;
+      line-height: 1.9;
+    }
+    .career-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .career-list li {
+      font-size: 0.82rem;
+      color: #555;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .career-list li::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--sub);
+      flex-shrink: 0;
+    }
+    .doctor-note {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      padding: 1.1rem 1.5rem;
+      background: rgba(45,90,78,0.07);
+      border-left: 2px solid var(--accent);
+    }
+    .doctor-photo {
+      background: var(--accent);
+      aspect-ratio: 3/4;
+      position: relative;
+      overflow: hidden;
+    }
+    .doctor-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* ─────────────────────────
+       4. SPECIALIST
+    ───────────────────────── */
+    #specialist {
+      background: var(--base);
+      border-top: 1px solid var(--border);
+    }
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 6rem;
+      align-items: center;
+    }
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 1.3rem;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 2rem;
+    }
+    .badge-tag svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .vice-card {
+      margin-top: 2.2rem;
+      padding: 1.8rem 2rem;
+      background: var(--white);
+      border-left: 3px solid var(--accent);
+    }
+    .vice-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .vice-sub {
+      font-size: 0.75rem;
+      color: var(--gray);
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .vice-quote {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.8;
+    }
+    .spec-visual {
+      background: var(--accent);
+      aspect-ratio: 4/5;
+      position: relative;
+      overflow: hidden;
+    }
+    .spec-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* ─────────────────────────
+       5. NUMBERS
+    ───────────────────────── */
+    #numbers {
+      background: var(--accent);
+      padding: 7rem 2rem;
+    }
+    .numbers-label {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.35em;
+      color: rgba(200,184,154,0.7);
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .num-item {
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .num-item + .num-item {
+      border-left: 1px solid rgba(255,255,255,0.12);
+    }
+    .num-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4.5rem, 9vw, 8.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 0.9;
+      margin-bottom: 0.6rem;
+    }
+    .num-val .unit {
+      font-size: 0.22em;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      vertical-align: super;
+      letter-spacing: 0.05em;
+    }
+    .num-val .sep {
+      font-size: 0.5em;
+      color: rgba(255,255,255,0.4);
+    }
+    .num-key {
+      font-size: 0.74rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.12em;
+      margin-top: 1rem;
+      margin-bottom: 0.6rem;
+    }
+    .num-desc {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.75;
+    }
+
+    /* ─────────────────────────
+       6. COMFORT
+    ───────────────────────── */
+    #comfort { background: var(--white); }
+    .comfort-head {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 4.5rem;
+    }
+    .comfort-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+    .c-card {
+      padding: 3rem 2.2rem 2.8rem;
+      background: var(--base);
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: box-shadow 0.35s, transform 0.35s;
+    }
+    .c-card:hover {
+      box-shadow: 0 8px 32px rgba(45,90,78,0.1);
+      transform: translateY(-4px);
+    }
+    .c-card-icon {
+      width: 52px; height: 52px;
+      margin: 0 auto 1.8rem;
+      color: var(--accent);
+    }
+    .c-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+    .c-card-desc {
+      font-size: 0.81rem;
+      color: #666;
+      line-height: 1.95;
+    }
+
+    /* ─────────────────────────
+       7. ACCESS
+    ───────────────────────── */
+    #access { background: var(--base); }
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 6rem;
+      align-items: start;
+    }
+    .phone-display {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-weight: 300;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      line-height: 1;
+      margin: 1.8rem 0 0.4rem;
+    }
+    .phone-caption {
+      font-size: 0.75rem;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+      margin-bottom: 2.2rem;
+    }
+    .btn-reserve {
+      display: inline-block;
+      padding: 1.15rem 3rem;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      transition: background 0.3s, transform 0.3s;
+      margin-bottom: 3rem;
+    }
+    .btn-reserve:hover { background: var(--accent-dark); transform: translateY(-3px); }
+
+    .access-dl { }
+    .access-dl dt {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      color: var(--sub);
+      margin-top: 1.5rem;
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+    }
+    .access-dl dd {
+      font-size: 0.86rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .hours-wrap { margin-top: 2.5rem; }
+    .hours-wrap h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.76rem;
+      letter-spacing: 0.28em;
+      color: var(--sub);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+    .hours-table th {
+      background: var(--accent);
+      color: rgba(255,255,255,0.85);
+      padding: 0.65rem 0.6rem;
+      font-weight: 400;
+      font-size: 0.74rem;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+    .hours-table th:first-child { text-align: left; padding-left: 1rem; }
+    .hours-table td {
+      padding: 0.65rem 0.6rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      color: #555;
+    }
+    .hours-table td:first-child { text-align: left; padding-left: 1rem; font-size: 0.77rem; }
+    .hours-table tr:last-child td { border-bottom: none; }
+    .mark-o { color: var(--accent); font-weight: 500; }
+    .mark-t { color: var(--sub); font-weight: 500; }
+    .mark-x { color: #ccc; }
+    .hours-note {
+      font-size: 0.72rem;
+      color: var(--gray);
+      margin-top: 0.7rem;
+    }
+
+    .map-placeholder {
+      background: #dedad3;
+      height: 100%;
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: #999;
+    }
+    .map-placeholder p { font-size: 0.8rem; line-height: 1.6; text-align: center; }
+
+    /* ─────────────────────────
+       FOOTER
+    ───────────────────────── */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.5);
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.6rem;
+    }
+    .footer-addr {
+      font-size: 0.76rem;
+      margin-bottom: 0.25rem;
+    }
+    .footer-copy {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.28);
+      margin-top: 2rem;
+    }
+
+    /* ─────────────────────────
+       RESPONSIVE
+    ───────────────────────── */
+    @media (max-width: 900px) {
+      #nav { padding: 1.1rem 1.8rem; }
+      .nav-links { display: none; }
+      .doctor-grid,
+      .spec-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .doctor-photo,
+      .spec-visual { aspect-ratio: unset; height: 300px; order: -1; }
+      .access-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .map-placeholder { min-height: 280px; }
+    }
+    @media (max-width: 680px) {
+      section { padding: 5rem 1.4rem; }
+      #numbers { padding: 5.5rem 1.4rem; }
+      .philosophy-cards,
+      .comfort-cards { grid-template-columns: 1fr; gap: 1.2rem; }
+      .numbers-grid { grid-template-columns: 1fr; }
+      .num-item + .num-item { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .btn-solid, .btn-ghost { width: 100%; max-width: 280px; text-align: center; }
+      .hours-table { font-size: 0.72rem; }
+      .hours-table th, .hours-table td { padding: 0.55rem 0.3rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════
+       NAVIGATION
+  ══════════════════════════ -->
+  <nav id="nav" aria-label="メインナビゲーション">
+    <a href="#hero" class="nav-logo">古市歯科医院</a>
+    <ul class="nav-links">
+      <li><a href="#philosophy">当院について</a></li>
+      <li><a href="#doctor">医師紹介</a></li>
+      <li><a href="#specialist">診療内容</a></li>
+      <li><a href="#access">アクセス</a></li>
+      <li><a href="#access">予約</a></li>
+    </ul>
+    <a href="tel:0485610024" class="nav-tel">048-561-0024</a>
+  </nav>
+
+
+  <!-- ══════════════════════════
+       1. HERO
+  ══════════════════════════ -->
+  <section id="hero" aria-label="メインビジュアル">
+
+    <!-- Gradient bg -->
+    <div class="hero-gradient"></div>
+
+    <!-- Leaf-vein SVG texture -->
+    <svg class="hero-svg-texture" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="rgba(200,184,154,0.6)" stroke-width="0.7" stroke-linecap="round">
+        <!-- Central spine -->
+        <path d="M 720 900 Q 680 680 660 540 Q 640 400 700 240 Q 720 180 720 60"/>
+        <path d="M 720 900 Q 760 680 780 540 Q 800 400 740 240 Q 720 180 720 60"/>
+        <!-- Left wing veins -->
+        <path d="M 680 800 Q 560 720 440 680"/>
+        <path d="M 670 720 Q 560 660 440 620"/>
+        <path d="M 660 640 Q 560 580 460 540"/>
+        <path d="M 660 560 Q 560 510 480 470"/>
+        <path d="M 662 480 Q 575 440 500 410"/>
+        <path d="M 665 408 Q 590 375 525 350"/>
+        <path d="M 670 340 Q 605 312 550 292"/>
+        <path d="M 675 278 Q 620 256 575 240"/>
+        <path d="M 680 220 Q 635 204 600 194"/>
+        <!-- Left sub-veins -->
+        <path d="M 600 750 Q 540 730 500 720" stroke-width="0.4"/>
+        <path d="M 560 700 Q 510 688 470 680" stroke-width="0.4"/>
+        <path d="M 590 640 Q 540 628 505 622" stroke-width="0.4"/>
+        <path d="M 570 580 Q 525 570 495 564" stroke-width="0.4"/>
+        <!-- Right wing veins -->
+        <path d="M 760 800 Q 880 720 1000 680"/>
+        <path d="M 770 720 Q 880 660 1000 620"/>
+        <path d="M 780 640 Q 880 580 980 540"/>
+        <path d="M 780 560 Q 880 510 960 470"/>
+        <path d="M 778 480 Q 865 440 940 410"/>
+        <path d="M 775 408 Q 850 375 915 350"/>
+        <path d="M 770 340 Q 835 312 890 292"/>
+        <path d="M 765 278 Q 820 256 865 240"/>
+        <path d="M 760 220 Q 805 204 840 194"/>
+        <!-- Right sub-veins -->
+        <path d="M 840 750 Q 900 730 940 720" stroke-width="0.4"/>
+        <path d="M 880 700 Q 930 688 970 680" stroke-width="0.4"/>
+        <path d="M 850 640 Q 900 628 935 622" stroke-width="0.4"/>
+        <path d="M 870 580 Q 915 570 945 564" stroke-width="0.4"/>
+      </g>
+      <!-- Subtle glow nodes -->
+      <g fill="rgba(200,184,154,0.25)">
+        <circle cx="720" cy="60"  r="2.5"/>
+        <circle cx="660" cy="540" r="2"/>
+        <circle cx="780" cy="540" r="2"/>
+        <circle cx="500" cy="680" r="1.5"/>
+        <circle cx="940" cy="680" r="1.5"/>
+      </g>
+    </svg>
+
+    <div class="hero-vignette"></div>
+
+    <!-- Content -->
+    <div class="hero-content">
+      <p class="hero-badge">古市歯科医院 &emsp; Furuichi Dental Clinic</p>
+      <h1 class="hero-h1">40年、羽生の歯を<br>守ってきた。</h1>
+      <p class="hero-sub">どうしても抜きたくない。その想いに、全力で応えます。</p>
+      <div class="hero-cta">
+        <a href="#access" class="btn-solid">ご予約はこちら</a>
+        <a href="#specialist" class="btn-ghost">診療内容を見る</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>SCROLL</span>
+      <svg width="10" height="18" viewBox="0 0 10 18" fill="none" stroke="currentColor" stroke-width="1.2">
+        <line x1="5" y1="0" x2="5" y2="14"/>
+        <polyline points="1,10 5,14 9,10"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+       2. PHILOSOPHY
+  ══════════════════════════ -->
+  <section id="philosophy">
+    <div class="container">
+
+      <div class="philosophy-head fade-in">
+        <span class="section-eyebrow">Philosophy</span>
+        <div class="rule"></div>
+        <h2 class="section-title">天然の歯は、最も優れた歯です。</h2>
+        <p class="section-body">私たちはインプラントを積極的に勧めません。削ることを最小限にします。<br>それが、当院40年の変わらない信念です。</p>
+      </div>
+
+      <div class="philosophy-cards">
+
+        <!-- Card 1: むやみに抜かない -->
+        <div class="p-card fade-in" style="--delay:80ms">
+          <svg class="p-card-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M26 9 C19.5 9 13 14.5 13 21 C13 26.5 15 31 17.5 36.5 C19.5 40.5 21 46 23.5 46 C25.5 46 25.5 41.5 26 39 C26.5 41.5 26.5 46 28.5 46 C31 46 32.5 40.5 34.5 36.5 C37 31 39 26.5 39 21 C39 14.5 32.5 9 26 9Z"/>
+            <path d="M21 9.5 C21 14 26 16.5 26 21"/>
+            <path d="M31 9.5 C31 14 26 16.5 26 21"/>
+          </svg>
+          <h3 class="p-card-title">むやみに抜かない</h3>
+          <p class="p-card-desc">天然歯の価値を最大限に尊重し、抜歯はあくまでも最後の手段。できる限り残す治療を一貫して追求します。</p>
+        </div>
+
+        <!-- Card 2: 削らない -->
+        <div class="p-card fade-in" style="--delay:200ms">
+          <svg class="p-card-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="26" cy="26" r="17"/>
+            <path d="M18 26 Q21 19.5 26 17 Q31 19.5 34 26"/>
+            <path d="M18 26 Q21 32.5 26 35 Q31 32.5 34 26"/>
+            <line x1="26" y1="17" x2="26" y2="35"/>
+            <line x1="18" y1="26" x2="34" y2="26"/>
+          </svg>
+          <h3 class="p-card-title">削らない</h3>
+          <p class="p-card-desc">健康な歯質をできるだけ傷つけない。最小限の処置で最大限の効果を追求した保存的治療が私たちの基本姿勢です。</p>
+        </div>
+
+        <!-- Card 3: 歯を残す -->
+        <div class="p-card fade-in" style="--delay:320ms">
+          <svg class="p-card-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M26 44 C26 44 10 34 10 21 C10 13 16.5 8 23 8 C24.7 8 26.2 8.5 27.5 9.4 C28.8 8.5 30.3 8 32 8 C38.5 8 45 13 45 21 C45 34 26 44 26 44Z" opacity="0.25" fill="currentColor" stroke="none"/>
+            <path d="M26 44 C26 44 11 34 11 21 C11 13.5 17 8.5 23.5 8.5"/>
+            <path d="M26 44 C26 44 41 34 41 21 C41 13.5 35 8.5 28.5 8.5"/>
+            <path d="M26 44 L26 22"/>
+            <path d="M26 32 Q32 27.5 36 21"/>
+            <path d="M26 26 Q20 21.5 16 16"/>
+          </svg>
+          <h3 class="p-card-title">歯を残す</h3>
+          <p class="p-card-desc">生涯を通じて、ご自身の歯で食べる喜びを。それが私たちの最終目標であり、すべての治療を導く羅針盤です。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+       3. DIRECTOR
+  ══════════════════════════ -->
+  <section id="doctor">
+    <div class="container">
+      <div class="doctor-grid">
+
+        <!-- Text -->
+        <div class="fade-in">
+          <span class="doctor-name-en">Director</span>
+          <h2 class="doctor-name-ja">古市 明</h2>
+          <p class="doctor-title">院長 / 歯学博士</p>
+
+          <blockquote class="doctor-quote">
+            「当院は40年続く歯科医院です。今後とも地域の皆さまのお口の中の健康のため尽力できればと思っております。治療においては診療時間を十分に確保し、一人ひとりの患者様に向き合った丁寧な診療を心がけております。」
+          </blockquote>
+
+          <ul class="career-list">
+            <li>博士号取得（保存修復学専攻）</li>
+            <li>日本歯科東洋医学会 評議員</li>
+            <li>古市歯科医院 院長就任</li>
+          </ul>
+
+          <p class="doctor-note">診療時間は、最低30分。じっくり話を聞きます。</p>
+        </div>
+
+        <!-- Photo -->
+        <div class="doctor-photo fade-in" style="--delay:150ms">
+          <img src="明２.png.avif" alt="院長 古市 明">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+       4. SPECIALIST
+  ══════════════════════════ -->
+  <section id="specialist">
+    <div class="container">
+      <div class="spec-grid">
+
+        <!-- Text -->
+        <div class="fade-in">
+          <span class="badge-tag">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+              <path d="M7 1 L8.8 5.2 L13.4 5.6 L10 8.6 L11.1 13 L7 10.4 L2.9 13 L4 8.6 L0.6 5.6 L5.2 5.2 Z"/>
+            </svg>
+            日本歯周病学会認定医 在籍
+          </span>
+          <h2 class="section-title">歯がグラつく。歯茎が腫れる。<br>そのまま放置すると、歯を失います。</h2>
+          <p class="section-body">歯周病は、歯を失う最大の原因です。症状が出にくい病気だからこそ、専門的な診断と継続的なケアが不可欠。当院には、大学病院の専門外来で研鑽を積んだ副院長が在籍しています。</p>
+
+          <div class="vice-card">
+            <div class="vice-name">古市 隆 副院長</div>
+            <div class="vice-sub">東京医科歯科大学 歯周病外来 出身 / 日本歯周病学会認定医</div>
+            <ul class="career-list" style="margin: 0.8rem 0 1rem;">
+              <li>東京医科歯科大学 歯周病外来 勤務</li>
+              <li>日本歯周病学会認定医 取得</li>
+              <li>古市歯科医院 副院長就任</li>
+            </ul>
+            <p class="vice-quote">「私は大学病院で歯周病を専門に研究し、臨床に励んできました。歯をどうしても残したい方には全力でご協力させていただきます。歯茎にトラブルを抱えている方は、ぜひ相談にいらっしゃってください。」</p>
+          </div>
+        </div>
+
+        <!-- Photo -->
+        <div class="spec-visual fade-in" style="--delay:150ms">
+          <img src="隆.png.avif" alt="副院長 古市 隆">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+       5. NUMBERS
+  ══════════════════════════ -->
+  <section id="numbers" aria-label="実績数字">
+    <div class="container">
+      <span class="numbers-label">Numbers that speak</span>
+      <div class="numbers-grid">
+
+        <div class="num-item fade-in" style="--delay:0ms">
+          <div class="num-val">40<span class="unit">年</span></div>
+          <div class="num-key">羽生での歴史</div>
+          <div class="num-desc">1985年の開業から変わらず、<br>地域の皆さまとともに歩んできました。</div>
+        </div>
+
+        <div class="num-item fade-in" style="--delay:160ms">
+          <div class="num-val">30<span class="sep">〜</span>60<span class="unit">分</span></div>
+          <div class="num-key">ひとりあたりの診療時間</div>
+          <div class="num-desc">急がず、丁寧に。<br>あなたの話を聞くための時間です。</div>
+        </div>
+
+        <div class="num-item fade-in" style="--delay:320ms">
+          <div class="num-val">0</div>
+          <div class="num-key">インプラント優先勧誘</div>
+          <div class="num-desc">必要と判断されない限り、<br>インプラントは勧めません。</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+       6. COMFORT
+  ══════════════════════════ -->
+  <section id="comfort">
+    <div class="container">
+
+      <div class="comfort-head fade-in">
+        <span class="section-eyebrow">Comfort &amp; Safety</span>
+        <div class="rule" style="margin: 0 auto 1.4rem;"></div>
+        <h2 class="section-title">安心して通えるクリニックへ</h2>
+      </div>
+
+      <div class="comfort-cards">
+
+        <!-- Privacy -->
+        <div class="c-card fade-in" style="--delay:60ms">
+          <svg class="c-card-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="8" y="14" width="36" height="30" rx="2"/>
+            <path d="M8 22 L44 22"/>
+            <path d="M20 14 L20 10 Q20 8 22 8 L30 8 Q32 8 32 10 L32 14"/>
+            <circle cx="26" cy="34" r="4"/>
+            <line x1="26" y1="38" x2="26" y2="41"/>
+          </svg>
+          <h3 class="c-card-title">半個室でプライバシー保護</h3>
+          <p class="c-card-desc">他の患者さんの視線を気にせず、安心して治療をお受けいただけます。プライベートな空間で丁寧にご対応します。</p>
+        </div>
+
+        <!-- Pain relief -->
+        <div class="c-card fade-in" style="--delay:180ms">
+          <svg class="c-card-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M26 43 C26 43 8 32 8 20 C8 13.5 12.5 9.5 17 9.5 C20.5 9.5 23.5 11.5 26 14.5 C28.5 11.5 31.5 9.5 35 9.5 C39.5 9.5 44 13.5 44 20 C44 32 26 43 26 43Z"/>
+            <path d="M19 23 L23 27 L33 17"/>
+          </svg>
+          <h3 class="c-card-title">痛みの緩和を徹底</h3>
+          <p class="c-card-desc">表面麻酔の塗布、注射液の温度管理、細い針の使用まで。痛みを最小限に抑える処置を一つひとつ丁寧に行います。</p>
+        </div>
+
+        <!-- Infection control -->
+        <div class="c-card fade-in" style="--delay:300ms">
+          <svg class="c-card-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M26 8 L41 15 L41 28 C41 37 35 43.5 26 47 C17 43.5 11 37 11 28 L11 15 Z"/>
+            <path d="M19.5 27.5 L24 32 L33 22"/>
+          </svg>
+          <h3 class="c-card-title">徹底した感染予防</h3>
+          <p class="c-card-desc">高圧蒸気滅菌器による器具の完全滅菌、ディスポーザブル用品の積極採用など、衛生管理を徹底しています。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+       7. ACCESS
+  ══════════════════════════ -->
+  <section id="access">
+    <div class="container">
+      <div class="access-grid">
+
+        <!-- Info -->
+        <div class="fade-in">
+          <span class="section-eyebrow">Access &amp; Reservation</span>
+          <div class="rule"></div>
+          <h2 class="section-title">ご来院・ご予約</h2>
+
+          <p class="phone-display">048-561-0024</p>
+          <p class="phone-caption">受付時間内にお気軽にお電話ください</p>
+
+          <a href="#" class="btn-reserve">ネットで予約する</a>
+
+          <dl class="access-dl">
+            <dt>住所</dt>
+            <dd>〒348-0057 埼玉県羽生市北1-4-10</dd>
+            <dt>アクセス</dt>
+            <dd>東武伊勢崎線 羽生駅 徒歩7分</dd>
+            <dd>駐車場完備（無料）</dd>
+            <dt>お電話</dt>
+            <dd>048-561-0024</dd>
+          </dl>
+
+          <div class="hours-wrap">
+            <h4>Clinic Hours</h4>
+            <table class="hours-table">
+              <thead>
+                <tr>
+                  <th>診療時間</th>
+                  <th>月</th>
+                  <th>火</th>
+                  <th>水</th>
+                  <th>木</th>
+                  <th>金</th>
+                  <th>土</th>
+                  <th>日祝</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>9:00 〜 13:00</td>
+                  <td class="mark-o">○</td>
+                  <td class="mark-o">○</td>
+                  <td class="mark-o">○</td>
+                  <td class="mark-x">—</td>
+                  <td class="mark-o">○</td>
+                  <td class="mark-o">○</td>
+                  <td class="mark-x">—</td>
+                </tr>
+                <tr>
+                  <td>14:30 〜 18:30</td>
+                  <td class="mark-o">○</td>
+                  <td class="mark-o">○</td>
+                  <td class="mark-o">○</td>
+                  <td class="mark-x">—</td>
+                  <td class="mark-o">○</td>
+                  <td class="mark-t">△</td>
+                  <td class="mark-x">—</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="hours-note">△ 土曜午前のみ &nbsp;|&nbsp; 休診：木曜・日曜・祝日</p>
+          </div>
+        </div>
+
+        <!-- Map placeholder -->
+        <div class="map-placeholder fade-in" style="--delay:150ms">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="#b0a898" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M26 7 C17 7 10 14 10 22 C10 33 26 47 26 47 C26 47 42 33 42 22 C42 14 35 7 26 7Z"/>
+            <circle cx="26" cy="22" r="6"/>
+          </svg>
+          <p>〒348-0057<br>埼玉県羽生市北1-4-10<br><br><span style="font-size:0.72rem; color:#bbb;">（本番環境ではGoogle Mapsを埋め込み）</span></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════
+       FOOTER
+  ══════════════════════════ -->
+  <footer>
+    <p class="footer-logo">古市歯科医院</p>
+    <p class="footer-addr">〒348-0057 埼玉県羽生市北1-4-10</p>
+    <p class="footer-addr">TEL: 048-561-0024 &nbsp;|&nbsp; 東武伊勢崎線 羽生駅 徒歩7分</p>
+    <p class="footer-copy">© 2025 古市歯科医院 All Rights Reserved. &nbsp;|&nbsp; This page is a demonstration.</p>
+  </footer>
+
+
+  <!-- ══════════════════════════
+       JAVASCRIPT
+  ══════════════════════════ -->
+  <script>
+    /* ── Nav scroll ── */
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 72);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── IntersectionObserver fade-in ── */
+    const IO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        IO.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -48px 0px'
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => IO.observe(el));
+  </script>
+
+</body>
+</html>
